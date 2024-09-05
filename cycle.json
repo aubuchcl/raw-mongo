@@ -1,41 +1,41 @@
 {
   "version": "1.0",
-  "about": {
-    "description": "mysqltest.",
-    "version": ""
-  },
-  "containers": {
-    "mongo": {
-      "config": {
-        "network": {
-          "public": "disable",
-          "hostname": "db",
-          "ports": ["3306:3306"]
-        },
-        "deploy": {
-          "instances": 1,
-          "restart": {
-            "condition": "always",
-            "max_attempts": 15,
-            "delay": "5s"
-          }
-        },
-        "runtime": {
-          "environment_vars": {
-            "MYSQL_ROOT_PASSWORD": "{{pw-variable}}",
-          }
-        }
+      "about": {
+        "description": "mysqltest.",
+        "version": ""
       },
-      "name": "mysql",
-      "image": {
-        "origin": {
-          "type": "docker-hub",
-          "details": {
-            "target": "mysql:latest"
-          }
+      "containers": {
+        "mysql": {
+          "config": {
+            "network": {
+              "public": "disable",
+              "hostname": "mysql",
+              "ports": ["3306:3306"]
+            },
+            "deploy": {
+              "instances": 1,
+              "restart": {
+                "condition": "always",
+                "max_attempts": 15,
+                "delay": "5s"
+              }
+            },
+            "runtime": {
+              "environment_vars": {
+                "MYSQL_ROOT_PASSWORD": "{{pw-variable}}"
+              }
+            }
+          },
+          "name": "mysql",
+          "image": {
+            "origin": {
+              "type": "docker-hub",
+              "details": {
+                "target": "mysql:latest"
+              }
+            }
+          },
+          "stateful": false
         }
-      },
-      "stateful": false
-    }
-  }
+      }
 }
