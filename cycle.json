@@ -22,7 +22,7 @@
             },
             "runtime": {
               "environment_vars": {
-                "MYSQL_ROOT_PASSWORD": "{{pw-variable}}"
+                "MYSQL_ROOT_PASSWORD": "password"
               }
             }
           },
