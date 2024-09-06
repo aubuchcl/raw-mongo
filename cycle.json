@@ -13,7 +13,7 @@
               "ports": ["3306:3306"]
             },
             "deploy": {
-              "instances": 1,
+              "instances": {{instance-num}},
               "restart": {
                 "condition": "always",
                 "max_attempts": 15,
